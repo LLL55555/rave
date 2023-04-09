@@ -1,0 +1,34 @@
+server:
+  port: 9000
+spring:
+  # Mysql配置
+  datasource:
+    driver-class-name: dm.jdbc.driver.DmDriver
+    url: jdbc:dm://localhost:5236/TEST?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=true&characterEncoding=UTF-8
+    # springboot2.0整合了hikari ,据说这是目前性能最好的java数据库连接池
+    hikari:
+      username: SYSDBA
+      password: SYSDBASYSDBA
+      idle-timeout: 60000
+      maximum-pool-size: 30
+      minimum-idle: 10
+      max-lifetime: 30000
+    name: dm
+logging:
+  pattern:
+    level: info
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+file:
+  upload:
+    path: src\main\resources\file\
+
+pdf:
+  folder: src\main\resources\file\
+  path: src\main\resources\file\
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/
